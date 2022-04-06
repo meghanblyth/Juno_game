@@ -1,8 +1,7 @@
-export const Card = () => {
-  const colour = 'red';
-  const number = 9;
+export const Card = (props) => {
   
   return ( 
-    <button id='card'>Colour = {colour}, Number = {number}</button>
+      <button id='card'>Colour = {props.colour}, Number = {props.number}</button>
+   
    );
 }

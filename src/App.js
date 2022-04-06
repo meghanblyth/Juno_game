@@ -7,7 +7,10 @@ function App() {
     <div className="App">
       <p>Juno!</p>
 
-      <Card />
+      <Card colour={'red'} number={'2'}/>
+      <Card colour={'blue'} number={'4'}/>
+      <Card colour={'yellow'} number={'6'}/>
+      <Card colour={'green'} number={'8'}/>
 
     </div>
   );
