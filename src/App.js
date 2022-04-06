@@ -1,6 +1,6 @@
 import './App.css';
-import {useState} from 'react';
-//import { Card } from './components/Card';
+import { useState } from 'react';
+import { Card } from './components/Card';
 
 function App() {
 
@@ -18,23 +18,29 @@ function App() {
     return randomCard;
   }
 
+  // Match Card
+  const [matchCard, setMatchCard] = useState(drawCard());
+
   // Hand (collection of cards)
-  //const hand = [];
   const [hand, setHand] = useState([]);
 
   // Draw a card
   const handleDrawCard = () => {
     const newHand = hand.concat(drawCard());
     setHand(newHand);
-
     //hand.push(drawCard());
     console.log(hand);
   }
 
-
   return (
     <div className="App">
       <p>Juno!</p>
+
+      <p>Matching card:
+        {matchCard.colour}, {matchCard.number}
+      </p>
+
+
       <p>Hand:</p>
 
       {/* Currently, the hand array isn't matching the hand output */}
