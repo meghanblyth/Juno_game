@@ -3,14 +3,21 @@ import { Card } from './components/Card';
 
 function App() {
 
+  // Deck (random values)
+  const number = Math.floor(Math.random() * 10);
+
+  const colourChoices = ['red', 'green', 'yellow', 'blue'];
+
+  const colour = colourChoices[Math.floor(Math.random()*colourChoices.length)];
+  
+
     return (
     <div className="App">
+
       <p>Juno!</p>
 
-      <Card colour={'red'} number={'2'}/>
-      <Card colour={'blue'} number={'4'}/>
-      <Card colour={'yellow'} number={'6'}/>
-      <Card colour={'green'} number={'8'}/>
+      {/* Cards */}
+      <Card colour={colour} number={number}/>
 
     </div>
   );
