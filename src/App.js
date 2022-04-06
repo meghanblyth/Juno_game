@@ -32,6 +32,17 @@ function App() {
     console.log(hand);
   }
 
+  // Play a card
+  const handleCardClick = (colour, number) => {
+    if (colour === matchCard.colour || number === matchCard.number) {
+      const newMatchCard = {
+        colour: colour,
+        number: number
+      }
+      setMatchCard(newMatchCard);
+    }
+  }
+
   return (
     <div className="App">
       <p>Juno!</p>
@@ -47,7 +58,7 @@ function App() {
       <p>
         {
           hand.map(
-            ({ colour, number }) => <button> {
+            ({ colour, number }) => <button onClick={handleCardClick(colour, number)}> {
               `Colour: ${colour} Number: ${number}`
             } </button>
           )
