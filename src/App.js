@@ -44,28 +44,9 @@ function App() {
 
       setMatchCard(newMatchCard);
 
-      console.log("i:" + i);
-
       // Remove card from hand (by index)
-      // const newHand = hand.filter((card) => card.index !== i);
-      //   //setHand((hand) => hand.filter((hand) => hand.index !== i))
-      //let newHand = hand;
-
-      // [0, 1, 2, 3, 4]
-
       const newHand = hand.slice(0, i).concat(hand.slice(i + 1, hand.length))
-
       setHand(newHand);
-      console.log(hand);
-
-
-      // deleteCard = index => {
-      //   this.setState(prevState => ({
-      //     tasks: prevState.tasks.filter((item, itemIndex) => itemIndex != index)
-      //   }))
-      // }
-
-
     }
 
   }
@@ -78,14 +59,12 @@ function App() {
         {matchCard.colour}, {matchCard.number}
       </p>
 
-
       <p>Hand:</p>
 
-      {/* Currently, the hand array isn't matching the hand output */}
       <p>
         {
           hand.map(
-            ({ colour, number }, i) => <button key={i} onClick={() => handleCardClick(colour, number, i)}> {
+            ({ colour, number }, i) => <button onClick={() => handleCardClick(colour, number, i)}> {
               `Colour: ${colour} Number: ${number}`
             } </button>
           )
