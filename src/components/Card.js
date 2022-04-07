@@ -9,3 +9,8 @@ export const Card = (props) => {
 
 
 
+// for(let i=0; i<5; i++) {
+//    const colour = computerHand[i].colour;
+//    const number = computerHand[i].number;
+
+// }

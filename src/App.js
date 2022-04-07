@@ -23,20 +23,23 @@ function App() {
   const [matchCard, setMatchCard] = useState(drawCard());
 
   // playerHand (collection of cards)
-  const [playerHand, setPlayerHand] = useState([]);
-  const [computerHand, setComputerHand] = useState([]);
-
-  // Turn
-  const [turn, setTurn] = useState(0)
+  const [playerHand, setPlayerHand] = useState([drawCard()]);
+  const [computerHand, setComputerHand] = useState([drawCard()]);
 
   // Draw a card
-  const handleCardDraw = () => {
-    const newPlayerHand = playerHand.concat(drawCard());
-    setPlayerHand(newPlayerHand);
-    console.log(playerHand);
+  const handleCardDraw = (turn) => {
 
-    const newTurn = turn + 1;
-    setTurn(newTurn);
+    if (turn === 'player') {
+      const newPlayerHand = playerHand.concat(drawCard());
+      setPlayerHand(newPlayerHand);
+      //console.log(playerHand);
+      handleComputerTurn();
+    } else {
+      const newComputerHand = computerHand.concat(drawCard());
+      setComputerHand(newComputerHand);
+      //console.log(computerHand);
+    }
+
   }
 
   // Play a card
@@ -55,16 +58,68 @@ function App() {
       const newPlayerHand = playerHand.slice(0, i).concat(playerHand.slice(i + 1, playerHand.length))
       setPlayerHand(newPlayerHand);
 
-      const newTurn = turn + 1;
-      setTurn(newTurn);
+      handleComputerTurn();
     }
   }
+
+
+
+
+  // Computer Turn
+  const handleComputerTurn = () => {
+
+    // 1. Computer tries to play a card from their hand
+
+    let didPlayCard = false;
+
+    for (let i = 0; i < computerHand.length; i++) {
+
+      const colour = computerHand[i].colour;
+      const number = computerHand[i].number;
+
+      // If card matches, update Match card
+      if (colour === matchCard.colour || number === matchCard.number) {
+        const newMatchCard = {
+          colour: colour,
+          number: number
+        }
+
+        setMatchCard(newMatchCard);
+
+        // Remove card from playerHand (by index)
+        const newComputerHand = computerHand.slice(0, i).concat(computerHand.slice(i + 1, computerHand.length))
+        setComputerHand(newComputerHand);
+
+        console.log("Computer played a card: " + colour + number)
+        console.log("Computer has " + computerHand.length + "cards in their hand")
+
+        didPlayCard = true;
+        break;
+      }
+    }
+
+    // 2. If no card was played, draw a card
+    if (didPlayCard === false) {
+      handleCardDraw();
+      console.log("Computer drew a card")
+      console.log("Computer has " + computerHand.length + "cards in their hand")
+    }
+
+  }
+
+
+  //   endTurn() (print what it did)
+
+
+
+
+
 
   return (
     <div className="App">
       <p>Juno!</p>
 
-      <p>Turns: {turn}</p>
+
 
       <p>Matching card:
         {matchCard.colour}, {matchCard.number}
@@ -75,7 +130,7 @@ function App() {
       <p>
         {
           playerHand.map(
-            ({ colour, number }, i) => <button onClick={() => playerHandleCardClick(colour, number, i)}> {
+            ({ colour, number }, i) => <button key={i} onClick={() => playerHandleCardClick(colour, number, i)}> {
               `Colour: ${colour} Number: ${number}`
             } </button>
           )
@@ -92,12 +147,11 @@ function App() {
       </p>
 
       <p>
-        <button onClick={handleCardDraw}>Draw a card</button>
+        <button onClick={() => handleCardDraw('player')}>Draw a card</button>
       </p>
 
     </div>
   );
-
 }
 
 export default App;
@@ -107,7 +161,7 @@ Computer Turn
 
 - Starts game with 7 cards (each)
 
-- Has a playerHand
+- Has a player Hand
 - Draws a card
 - Plays a card
   - Cycles through every card in it's playerHand array
@@ -118,11 +172,6 @@ Computer Turn
 
 - Feedback messages (2 second delay?)
 
-
-while (winner=false) {
-  playerTurn()
-  computerTurn()
-}
 
 print 'game over!'
 */
