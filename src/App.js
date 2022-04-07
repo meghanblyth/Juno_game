@@ -24,12 +24,17 @@ function App() {
   // Hand (collection of cards)
   const [hand, setHand] = useState([]);
 
+  // turn
+  const [turn, setTurn] = useState(0)
+
   // Draw a card
   const handleDrawCard = () => {
     const newHand = hand.concat(drawCard());
     setHand(newHand);
-    //hand.push(drawCard());
     console.log(hand);
+
+    const newTurn = turn + 1;
+    setTurn(newTurn);
   }
 
   // Play a card
@@ -47,6 +52,9 @@ function App() {
       // Remove card from hand (by index)
       const newHand = hand.slice(0, i).concat(hand.slice(i + 1, hand.length))
       setHand(newHand);
+
+      const newTurn = turn + 1;
+      setTurn(newTurn);
     }
 
   }
@@ -54,6 +62,8 @@ function App() {
   return (
     <div className="App">
       <p>Juno!</p>
+
+      <p>Turns: {turn}</p>
 
       <p>Matching card:
         {matchCard.colour}, {matchCard.number}
