@@ -58,7 +58,7 @@ function App() {
       <p>
         {
           hand.map(
-            ({ colour, number }) => <button onClick={handleCardClick(colour, number)}> {
+            ({ colour, number }) => <button onClick={() => handleCardClick(colour, number)}> {
               `Colour: ${colour} Number: ${number}`
             } </button>
           )
