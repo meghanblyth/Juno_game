@@ -1,6 +1,11 @@
 import './App.css';
 import { useState } from 'react';
 import { Card } from './components/Card';
+// import { ComputerHand } from './components/ComputerHand';
+// import { Deck } from './components/Deck';
+import { Game } from './components/Game';
+// import { Matcher } from './components/Matcher';
+// import { PlayerHand } from './components/PlayerHand';
 
 function App() {
 
@@ -53,8 +58,10 @@ function App() {
 
   return (
     <div className="App">
+      <Game />
       <p>Juno!</p>
-
+      
+      <div className="Content">
       <p>Matching card:
         {matchCard.colour}, {matchCard.number}
       </p>
@@ -83,6 +90,8 @@ function App() {
       <p>
         <button onClick={handleDrawCard}>Draw a card</button>
       </p>
+      <Card />
+      </div>
 
     </div>
   );

@@ -1,11 +1,10 @@
-export const Card = (props) => {
+export const Card = () => {
   
   return ( 
-      <button id='card'>Colour = {props.colour}, Number = {props.number}</button>
-   
+   <img src="Assets/Blue_0.png" className="blue card" alt="" />
    );
 }
 
 
-
+// <button id='card'>Colour = {props.colour}, Number = {props.number}</button>
 
