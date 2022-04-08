@@ -1,6 +1,11 @@
 import './App.css';
 import { useState } from 'react';
-import { Card } from './components/Card';
+// import { Card } from './components/Card';
+// import { ComputerHand } from './components/Card';
+// import { Deck } from './components/Card';
+// import { Game } from './components/Card';
+// import { Matcher } from './components/Card';
+// import { PlayerHand } from './components/Card';
 
 function App() {
 
