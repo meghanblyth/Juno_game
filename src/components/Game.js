@@ -1,7 +1,6 @@
-// const Game = () => {
-//   return ( 
-
-//    );
-// }
+export const Game = () => {
+  return ( 
+    <h1>Welcome to Juno!</h1>
+   );
+}
  
-// export default Game;

@@ -20,7 +20,7 @@ npm start
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## 👏 Contributors
-[Peter O'Callaghan](https://github.com/harmlessgoose)
-[Meghan Blyth](https://github.com/meghanblyth)
-[Haroon Fatih](https://github.com/Haroon2021)
-[Sarah Moffat](https://github.com/SarahM55)
+- [Peter O'Callaghan](https://github.com/harmlessgoose)
+- [Meghan Blyth](https://github.com/meghanblyth)
+- [Haroon Fatih](https://github.com/Haroon2021)
+- [Sarah Moffat](https://github.com/SarahM55)
