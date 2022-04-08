@@ -1,9 +1,10 @@
 import './App.css';
 import { useState } from 'react';
+import Table_4 from "./images/Table_4.png"
 import { Card } from './components/Card';
+import { Game } from './components/Game';
 // import { ComputerHand } from './components/ComputerHand';
 // import { Deck } from './components/Deck';
-import { Game } from './components/Game';
 // import { Matcher } from './components/Matcher';
 // import { PlayerHand } from './components/PlayerHand';
 
@@ -57,11 +58,13 @@ function App() {
   }
 
   return (
+
+    <div className="background" style={{ backgroundImage: `url(${Table_4})` }}>
+
     <div className="App">
-      <Game />
-      <p>Juno!</p>
-      
-      <div className="Content">
+      <p><h1><strong>Juno!</strong></h1></p>
+      {/* <Game /> */}
+
       <p>Matching card:
         {matchCard.colour}, {matchCard.number}
       </p>
@@ -90,9 +93,10 @@ function App() {
       <p>
         <button onClick={handleDrawCard}>Draw a card</button>
       </p>
-      <Card />
-      </div>
 
+      <Card />
+
+    </div>
     </div>
   );
 
