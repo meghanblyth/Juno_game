@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Table_4 from "./images/Table_4.png"
+// import { Home } from './components/Home';
 import { Card } from './components/Card';
 import { Game } from './components/Game';
 // import { ComputerHand } from './components/ComputerHand';
