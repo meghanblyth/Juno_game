@@ -1,7 +1,12 @@
 export const Card = () => {
   
   return ( 
-   <img src="Assets/Blue_0.png" className="blue card" alt="" />
+    <div className="Cards">
+      <img src="Assets/Blue_0.png" className="blue card" alt="" />
+      <img src="Assets/Green_0.png" className="green card" alt="" />
+      <img src="Assets/Red_0.png" className="red card" alt="" />
+      <img src="Assets/Yellow_0.png" className="yellow card" alt="" />
+    </div>
    );
 }
 
