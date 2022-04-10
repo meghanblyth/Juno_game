@@ -7,6 +7,9 @@ import { Game } from './components/Game';
 // import { Deck } from './components/Deck';
 // import { Matcher } from './components/Matcher';
 // import { PlayerHand } from './components/PlayerHand';
+import { CardList } from './components/New/CardList';
+import { MyCard } from './components/New/CardList';
+
 
 function App() {
 
@@ -38,8 +41,7 @@ function App() {
     console.log(hand);
   }
 
-  // Play a card
-  const handleCardClick = (colour, number, i) => {
+  const Checkifmatch = (colour,number,position) => {
 
     // If card matches, update Match card
     if (colour === matchCard.colour || number === matchCard.number) {
@@ -51,7 +53,7 @@ function App() {
       setMatchCard(newMatchCard);
 
       // Remove card from hand (by index)
-      const newHand = hand.slice(0, i).concat(hand.slice(i + 1, hand.length))
+      const newHand = hand.slice(0, position).concat(hand.slice(position + 1, hand.length))
       setHand(newHand);
     }
 
@@ -59,47 +61,33 @@ function App() {
 
   return (
 
+
     <div className="background" style={{ backgroundImage: `url(${Table_4})` }}>
 
-    <div className="App">
-      <p><h1><strong>Juno!</strong></h1></p>
-      {/* <Game /> */}
+      <div className="App">
+        <h1><strong>Juno!</strong></h1>
 
-      <p>Matching card:
-        {matchCard.colour}, {matchCard.number}
-      </p>
+        <p>Matching card:
+          {matchCard.colour}, {matchCard.number}
+        </p>
 
-      <p>Hand:</p>
+        <p>Hand:</p>
+        <>
+        {/* Displays all the cards in the hand */}
+          <CardList allcards={hand} onclickevent={Checkifmatch} />
+        </>
 
-      <p>
-        {
-          hand.map(
-            ({ colour, number }, i) => <button onClick={() => handleCardClick(colour, number, i)}> {
-              `Colour: ${colour} Number: ${number}`
-            } </button>
-          )
-        }
+        <p>
+          {/* Draws a card to the hand */}
+          <button onClick={handleDrawCard}>Draw a card</button>
+        </p>
 
-        {/* {
-          hand.map(
-            ({ colour, number }) => <li> {
-              <Card colour={colour} number={number} />
-            } </li>
-          )
-        } */}
+        <Card />
 
-      </p>
-
-      <p>
-        <button onClick={handleDrawCard}>Draw a card</button>
-      </p>
-
-      <Card />
-
+      </div>
     </div>
-    </div>
+
   );
-
 }
 
 export default App;
