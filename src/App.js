@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Table_4 from "./images/Table_4.png"
 import { Card } from './components/Card';
 import { Game } from './components/Game';
