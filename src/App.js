@@ -61,6 +61,7 @@ function App() {
 
   return (
 
+
     <div className="background" style={{ backgroundImage: `url(${Table_4})` }}>
 
       <div className="App">
@@ -84,6 +85,7 @@ function App() {
         <Card />
 
       </div>
+    </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 export const Game = () => {
   return ( 
-    <h1>Welcome to Juno!</h1>
+    <div className="overlay" style={{background: `url(${Table_0})`}}/>
    );
 }
  
