@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Card } from './Card';
 import { drawCard } from '../utils/Deck';
 import { PlayerHand } from './PlayerHand';
+import { ComputerHand } from './ComputerHand';
 
 export const Game = () => {
 
@@ -93,7 +94,7 @@ export const Game = () => {
 
   //   endTurn() (print what it did)
 
-
+// 
   return (
 
 
@@ -102,6 +103,9 @@ export const Game = () => {
       <h1><strong>Juno!</strong></h1>
       {/* <Game /> */}
 
+
+      <p>Computer Hand:</p>
+      <ComputerHand computerHand={computerHand}  />
       <p>Matching card:
         
               <Card colour={matchCard.colour} number={matchCard.number} onClick={() => {}}/>
