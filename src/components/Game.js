@@ -104,10 +104,8 @@ export const Game = () => {
 
       <p>Matching card:
         
-
-        {
-              <Card colour={matchCard.colour} number={matchCard.number} playerHandleCardClick={playerHandleCardClick}/>
-            }
+              <Card colour={matchCard.colour} number={matchCard.number} onClick={() => {}}/>
+            
       </p>
 
       <p>Hand:</p>
@@ -115,7 +113,7 @@ export const Game = () => {
       <p>
       
         <PlayerHand playerHand={playerHand}
-         playerHandleCardClick={playerHandleCardClick}/>
+         onCardClick={playerHandleCardClick}/>
   
       </p>
 

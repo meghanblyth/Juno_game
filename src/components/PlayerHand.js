@@ -1,11 +1,10 @@
 import { Card } from './Card';
 
-
 export const PlayerHand = (props) => {
     
         const playerHand = props.playerHand.map(
           ({ colour, number }, i) => <li> {
-            <Card colour={colour} number={number} playerHandleCardClick={props.playerHandleCardClick} i={i} type={'hand'}  />
+            <Card colour={colour} number={number} onClick={props.onCardClick} i={i} type={'hand'}  />
           } </li>
         ) 
       

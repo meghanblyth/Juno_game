@@ -7,7 +7,7 @@ export const Card = (props) => {
 
       alt="" 
 
-      onClick={() => props.playerHandleCardClick(props.colour, props.number, props.i)}/>
+      onClick={() => props.onClick(props.colour, props.number, props.i)}/>
     </div>
   );
 };
