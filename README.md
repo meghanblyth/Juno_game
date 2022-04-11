@@ -1,4 +1,5 @@
-![JunoLogo](https://user-images.githubusercontent.com/79933323/162804655-0cdc825d-c439-4c92-ac27-a30385dc90c5.png)
+![Juno logo](https://user-images.githubusercontent.com/79933323/162805091-aab2a183-073f-47c5-8cf4-e9ac5f2a46cc.png)
+
 
 
 ## 👀 Overview
