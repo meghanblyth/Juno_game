@@ -7,7 +7,8 @@ import { Rules } from './components/Rules';
 
 function App() {
   return (
-    <div className="background" style={{ backgroundImage: `url(${Table_4})` }}>
+    <div>
+    {/* <div className="background" style={{ backgroundImage: `url(${Table_4})` }}> */}
 
       {/* <Switch> 
             <Router exact path='/'>

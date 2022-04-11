@@ -1,26 +1,11 @@
 import { useState } from 'react';
 import { Card } from './Card';
 import { ComputerHand } from './ComputerHand';
-import { Deck } from './Deck';
+import { drawCard } from '../utils/Deck';
 import { Matcher } from './Matcher';
 import { PlayerHand } from './PlayerHand';
 
 export const Game = () => {
-
-  // Deck (random values)
-  const drawCard = () => {
-    const randomNumber = Math.floor(Math.random() * 10);
-    const colourChoices = ['red', 'green', 'yellow', 'blue'];
-    const randomColour = colourChoices[Math.floor(Math.random() * colourChoices.length)];
-
-    const randomCard = {
-      colour: randomColour,
-      number: randomNumber
-    };
-
-    return randomCard;
-  }
-
 
   // Match Card
   const [matchCard, setMatchCard] = useState(drawCard());
@@ -129,21 +114,14 @@ export const Game = () => {
       <p>Hand:</p>
 
       <p>
+ 
         {
           playerHand.map(
-            ({ colour, number }, i) => <button key={i} onClick={() => playerHandleCardClick(colour, number, i)}> {
-              `Colour: ${colour} Number: ${number}`
-            } </button>
+            ({ colour, number }, i) => <li> {
+              <Card colour={colour} number={number} playerHandleCardClick={playerHandleCardClick} i={i} />
+            } </li>
           )
         }
-
-        {/* {
-              hand.map(
-                ({ colour, number }) => <li> {
-                  <Card colour={colour} number={number} />
-                } </li>
-              )
-            } */}
 
       </p>
 
