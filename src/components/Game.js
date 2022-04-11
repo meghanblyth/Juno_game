@@ -6,6 +6,10 @@ import { ComputerHand } from './ComputerHand';
 
 export const Game = () => {
 
+  const styles= {
+    color: 'white',
+  };
+
   // Match Card
   const [matchCard, setMatchCard] = useState(drawCard());
 
@@ -100,7 +104,7 @@ export const Game = () => {
 
     <div className="App">
 
-      <h1><strong>Juno!</strong></h1>
+      <h1 style={styles}><strong>Juno!</strong></h1>
       {/* <Game /> */}
 
 
