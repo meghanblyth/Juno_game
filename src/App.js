@@ -41,7 +41,7 @@ function App() {
     console.log(hand);
   }
 
-  const Checkifmatch = (colour,number,position) => {
+  const handleCardClick = (colour,number,position) => {
 
     // If card matches, update Match card
     if (colour === matchCard.colour || number === matchCard.number) {
@@ -74,7 +74,7 @@ function App() {
         <p>Hand:</p>
         <>
         {/* Displays all the cards in the hand */}
-          <CardList allcards={hand} onclickevent={Checkifmatch} />
+          <CardList allcards={hand} onclickevent={handleCardClick} />
         </>
 
         <p>
