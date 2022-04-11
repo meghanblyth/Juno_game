@@ -7,6 +7,3 @@ export const Home = () => {
    );
 }
  
-  // <div className="landing_page" style={{ backgroundImage: `url(${Landing_Page})` }}>
-
-    // </div>
