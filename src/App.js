@@ -3,6 +3,11 @@ import { useState } from 'react';
 import Table_4 from "./images/Table_4.png"
 import { Card } from './components/Card';
 import { Game } from './components/Game';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom' ;
+import Home from './Home';
+import Play from './Play';
+import Rules from './Rules';
+
 // import { ComputerHand } from './components/ComputerHand';
 // import { Deck } from './components/Deck';
 // import { Matcher } from './components/Matcher';
@@ -61,42 +66,58 @@ function App() {
 
     <div className="background" style={{ backgroundImage: `url(${Table_4})` }}>
 
-    <div className="App">
-      <p><h1><strong>Juno!</strong></h1></p>
-      {/* <Game /> */}
+      <Router>
 
-      <p>Matching card:
-        {matchCard.colour}, {matchCard.number}
-      </p>
+        <div className="App">
+          <Switch> 
+            <Router exact path='/'>
+              <Home/>
+            </Router>
+            <Router exact path='/play'>
+              <Play/>
+            </Router>
+            <Router exact path='/rules'>
+              <Rules/>
+            </Router>
+          </Switch>
 
-      <p>Hand:</p>
+          
+          <p><h1><strong>Juno!</strong></h1></p>
+          {/* <Game /> */}
 
-      <p>
-        {
-          hand.map(
-            ({ colour, number }, i) => <button onClick={() => handleCardClick(colour, number, i)}> {
-              `Colour: ${colour} Number: ${number}`
-            } </button>
-          )
-        }
+          <p>Matching card:
+            {matchCard.colour}, {matchCard.number}
+          </p>
 
-        {/* {
-          hand.map(
-            ({ colour, number }) => <li> {
-              <Card colour={colour} number={number} />
-            } </li>
-          )
-        } */}
+          <p>Hand:</p>
 
-      </p>
+          <p>
+            {
+              hand.map(
+                ({ colour, number }, i) => <button onClick={() => handleCardClick(colour, number, i)}> {
+                  `Colour: ${colour} Number: ${number}`
+                } </button>
+              )
+            }
 
-      <p>
-        <button onClick={handleDrawCard}>Draw a card</button>
-      </p>
+            {/* {
+              hand.map(
+                ({ colour, number }) => <li> {
+                  <Card colour={colour} number={number} />
+                } </li>
+              )
+            } */}
 
-      <Card />
+          </p>
 
-    </div>
+          <p>
+            <button onClick={handleDrawCard}>Draw a card</button>
+          </p>
+
+          <Card />
+
+        </div>
+      </Router>
     </div>
   );
 
