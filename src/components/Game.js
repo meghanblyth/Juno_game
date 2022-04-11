@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Card } from './Card';
-import { ComputerHand } from './ComputerHand';
 import { drawCard } from '../utils/Deck';
-import { Matcher } from './Matcher';
 import { PlayerHand } from './PlayerHand';
 
 export const Game = () => {
@@ -49,9 +47,6 @@ export const Game = () => {
       handleComputerTurn();
     }
   }
-
-
-
 
   // Computer Turn
   const handleComputerTurn = () => {
@@ -118,15 +113,10 @@ export const Game = () => {
       <p>Hand:</p>
 
       <p>
- 
-        {
-          playerHand.map(
-            ({ colour, number }, i) => <li> {
-              <Card colour={colour} number={number} playerHandleCardClick={playerHandleCardClick} i={i} type={'hand'}  />
-            } </li>
-          )
-        }
-
+      
+        <PlayerHand playerHand={playerHand}
+         playerHandleCardClick={playerHandleCardClick}/>
+  
       </p>
 
       <p>

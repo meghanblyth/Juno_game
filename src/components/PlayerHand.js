@@ -1,7 +1,14 @@
-// const PlayerHand = () => {
-//   return ( 
+import { Card } from './Card';
 
-//    );
-// }
- 
-// export default PlayerHand;
+
+export const PlayerHand = (props) => {
+    
+        const playerHand = props.playerHand.map(
+          ({ colour, number }, i) => <li> {
+            <Card colour={colour} number={number} playerHandleCardClick={props.playerHandleCardClick} i={i} type={'hand'}  />
+          } </li>
+        ) 
+      
+  return ( playerHand)
+      
+}
