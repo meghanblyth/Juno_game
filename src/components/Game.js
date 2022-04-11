@@ -108,7 +108,11 @@ export const Game = () => {
       {/* <Game /> */}
 
       <p>Matching card:
-        {matchCard.colour}, {matchCard.number}
+        
+
+        {
+              <Card colour={matchCard.colour} number={matchCard.number} playerHandleCardClick={playerHandleCardClick}/>
+            }
       </p>
 
       <p>Hand:</p>
@@ -118,7 +122,7 @@ export const Game = () => {
         {
           playerHand.map(
             ({ colour, number }, i) => <li> {
-              <Card colour={colour} number={number} playerHandleCardClick={playerHandleCardClick} i={i} />
+              <Card colour={colour} number={number} playerHandleCardClick={playerHandleCardClick} i={i} type={'hand'}  />
             } </li>
           )
         }
