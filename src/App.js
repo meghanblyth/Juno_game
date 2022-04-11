@@ -2,11 +2,11 @@ import './App.css';
 import { useState } from 'react';
 import Table_4 from "./images/Table_4.png"
 import { Card } from './components/Card';
-import { Game } from './components/Game';
+// import { Game } from './components/Game';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom' ;
-import Home from './Home';
-import Play from './Play';
-import Rules from './Rules';
+import { Home } from './components/Home';
+import { Play } from './components/Play';
+import { Rules } from './components/Rules';
 
 // import { ComputerHand } from './components/ComputerHand';
 // import { Deck } from './components/Deck';
@@ -121,20 +121,11 @@ function App() {
 
   //   endTurn() (print what it did)
 
-
-
-
-
-
   return (
 
     <div className="background" style={{ backgroundImage: `url(${Table_4})` }}>
-
-
-      <Router>
-
         <div className="App">
-          <Switch> 
+          {/* <Switch> 
             <Router exact path='/'>
               <Home/>
             </Router>
@@ -144,7 +135,7 @@ function App() {
             <Router exact path='/rules'>
               <Rules/>
             </Router>
-          </Switch>
+          </Switch> */}
 
           
           <p><h1><strong>Juno!</strong></h1></p>
@@ -158,8 +149,8 @@ function App() {
 
           <p>
             {
-              hand.map(
-                ({ colour, number }, i) => <button onClick={() => handleCardClick(colour, number, i)}> {
+              playerHand.map(
+                ({ colour, number }, i) => <button key={i} onClick={() => playerHandleCardClick(colour, number, i)}> {
                   `Colour: ${colour} Number: ${number}`
                 } </button>
               )
@@ -176,14 +167,12 @@ function App() {
           </p>
 
           <p>
-            <button onClick={handleDrawCard}>Draw a card</button>
+            <button onClick={ () => handleCardDraw('player')}>Draw a card</button>
           </p>
 
           <Card />
 
         </div>
-      </Router>
-
     </div>
   );
 }

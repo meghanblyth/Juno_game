@@ -1,6 +1,12 @@
 export const Home = () => {
   return ( 
-    <h1>Welcome to home page</h1>
+    <div className="Home">
+      <h1>Home</h1>
+        <button>Rules</button> <button>Play!</button>
+    </div>
    );
 }
  
+  // <div className="landing_page" style={{ backgroundImage: `url(${Landing_Page})` }}>
+
+    // </div>
