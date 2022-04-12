@@ -153,61 +153,73 @@ export const Game = () => {
             (computerHand.length === 0 ? <p>You lost!</p> :
 
               <div>
+                <section class="section">
+                  <div class="container is-fullhd">
 
-                {/* Top row */}
-                <div className="columns">
-                  <div className="column">
-                    <p>Computer Hand:</p>
-                    <ComputerHand computerHand={computerHand} />
-                  </div>
-                </div>
-
-                {/* Middle row */}
-                <div className="columns">
-                  
-                  <div className="column is-one-third">
-                    <p>
-                      <button onClick={() => handleCardDraw('player')}>Draw a card</button>
-                    </p>
-                  </div>
-
-                  <div className="column is-one-third">
-                    <div className="image is-128x128">Matching card:
-                      <Card colour={matchCard.colour} number={matchCard.number} onClick={() => { }} />
+                    <div>
+                      {/* Top row */}
+                      <div className="columns is-centered is-mobile is-multiline">
+                        <div className="column">
+                          <p>Computer Hand:</p>
+                          <ComputerHand computerHand={computerHand} />
+                        </div>
+                      </div>
                     </div>
+
                   </div>
+                </section>
+                
+                <section class="section">
+                  <div class="container is-fullhd">
 
-                  <div className="column is-one-third">
-                    <p>
-                      {messages}
-                    </p>
+                    {/* Middle row */}
+                    <div className="columns is-centered is-mobile is-multiline">
+
+                      <div className="column is-one-third">
+                        <p>
+                          <button onClick={() => handleCardDraw('player')}>Draw a card</button>
+                        </p>
+                      </div>
+
+                      <div className="column is-one-third">
+                        <div className="image is-128x128">Matching card:
+                          <Card colour={matchCard.colour} number={matchCard.number} onClick={() => { }} />
+                        </div>
+                      </div>
+
+                      <div className="column is-one-third is-mobile is-multiline">
+                        <p>
+                          {messages}
+                        </p>
+                      </div>
+
+                    </div>
+
                   </div>
+                </section>
+                
+                <section class="section">
+                  <div class="container is-fullhd">
 
-                </div>
+                    {/* Bottom row */}
+                    <div className="columns is-centered">
+                      <div className="column">
+                        <p>Hand:</p>
+                        <PlayerHand playerHand={playerHand}
+                          onCardClick={playerHandleCardClick} />
+                      </div>
+                    </div>
 
-                {/* Bottom row */}
-                <div className="columns">
-                  <div className="column">
-                    <p>Hand:</p>
-                    <PlayerHand playerHand={playerHand}
-                      onCardClick={playerHandleCardClick} />
                   </div>
-
-                </div>
-
-
-
+                </section>
               </div>
             )
           }
 
-
-
-
         </div>
-      </div>
 
-    </section>
+      </div>
+    </section >
 
   )
 }
