@@ -5,6 +5,7 @@ import { PlayerHand } from './PlayerHand';
 import { ComputerHand } from './ComputerHand';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHand } from '@fortawesome/free-solid-svg-icons'
+import { Messages } from './Messages';
 
 export const Game = () => {
 
@@ -144,10 +145,6 @@ export const Game = () => {
 
         <div className="Game">
 
-          <div className="columns is-centered">
-            <div className="column"><h1><strong>Juno!</strong></h1></div>
-          </div>
-
           {/* <Game /> */}
 
           {playerHand.length === 0 ? <p>You won!</p> :
@@ -162,7 +159,13 @@ export const Game = () => {
                       {/* Top row */}
                       <div className="columns is-centered is-mobile is-multiline">
                         <div className="column">
-                          <p>Computer Hand:</p>
+                          <img src="Assets/Logo.png" class="image is-128x128"></img>
+                        </div>
+                      </div>
+
+                      <div className="columns is-centered is-mobile is-multiline">
+                        <div className="column">
+                          <h1 class="title has-text-right" >Computer's Hand</h1>
                           <ComputerHand computerHand={computerHand} />
                         </div>
                       </div>
@@ -175,9 +178,9 @@ export const Game = () => {
                   <div class="container is-fullhd">
 
                     {/* Middle row */}
-                    <div className="columns is-centered is-mobile is-multiline">
+                    <div className="columns is-centered is-mobile is-multiline is-vcentered ">
 
-                      <div className="column is-one-third">
+                      <div className="column is-one-third has-text-centered">
                         <p>
                           <button class="button is-medium is-danger" onClick={() => handleCardDraw('player')}>
                             <span class="icon">
@@ -187,16 +190,15 @@ export const Game = () => {
                         </p>
                       </div>
 
-                      <div className="column is-one-third">
-                        <div className="image is-128x128">Matching card:
+                      <div className="column is-one-third has-text-centered is-mobile is-multiline">
+                      <h1 class="title has-text-centered">Matching Card</h1>
+                        <div className="image is-128x128 is-inline-block">
                           <Card colour={matchCard.colour} number={matchCard.number} onClick={() => { }} />
                         </div>
                       </div>
 
-                      <div className="column is-one-third is-mobile is-multiline">
-                        <p>
-                          {messages}
-                        </p>
+                      <div className="column is-one-third is-mobile is-multiline has-text-weight-medium">
+                        <Messages messages={messages} /> 
                       </div>
 
                     </div>
@@ -210,7 +212,7 @@ export const Game = () => {
                     {/* Bottom row */}
                     <div className="columns is-centered">
                       <div className="column">
-                        <p>Hand:</p>
+                        <h1 class="title">Your Hand</h1>
                         <PlayerHand playerHand={playerHand}
                           onCardClick={playerHandleCardClick} />
                       </div>
