@@ -14,3 +14,16 @@ export const drawCard = () => {
   );
 
 }
+
+export const drawStarterHand = () => {
+
+  // Make array of 7 cards
+  const cards = [];
+
+  for(let i = 0; i < 7; i++){
+    cards.push(drawCard());
+  }
+  
+  // Return array of cards
+  return cards
+}
