@@ -4,11 +4,11 @@
 
 ## 👀 Overview
 
-A simple Uno Game made in Javascript (hence the name 'Juno'!) created for our final project at the Makers Academy. Players take turns matching a card in their hand with the current card shown on top of the deck, either by color or number. 'Special' cards deliver extra functions to help you defeat your opponent - these include skips, reverses, and color-changing wild cards.
+A simple Uno Game made in JavaScript (hence the name 'Juno'!) created for our final project at the Makers Academy. Players take turns matching a card in their hand with the current card shown on top of the deck, either by color or number. 
 
 ## 🔧 Technologies
 
-- Javascript
+- JavaScript
 - React.js
 - HTML
 - CSS
