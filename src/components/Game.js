@@ -3,6 +3,8 @@ import { Card } from './Card';
 import { drawCard, drawStarterHand } from '../utils/Deck';
 import { PlayerHand } from './PlayerHand';
 import { ComputerHand } from './ComputerHand';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHand } from '@fortawesome/free-solid-svg-icons'
 
 export const Game = () => {
 
@@ -177,7 +179,11 @@ export const Game = () => {
 
                       <div className="column is-one-third">
                         <p>
-                          <button onClick={() => handleCardDraw('player')}>Draw a card</button>
+                          <button class="button is-medium is-danger" onClick={() => handleCardDraw('player')}>
+                            <span class="icon">
+                              <FontAwesomeIcon icon={faHand}/>
+                            </span>
+                            <span>Draw a card</span></button>
                         </p>
                       </div>
 
