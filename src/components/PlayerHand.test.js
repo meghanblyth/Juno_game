@@ -7,6 +7,7 @@ const Button = ({onClick, children}) => (
 
 it('calls onClick prop when clicked', () => {
   const handleClick = jest.fn()
+  // render(<PlayerHand />);
   render(<Button onClick={handleClick}>Draw card</Button>)
   fireEvent.click(screen.getByText(/draw card/i))
   expect(handleClick).toHaveBeenCalledTimes(1)
