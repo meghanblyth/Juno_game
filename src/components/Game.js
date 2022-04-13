@@ -159,7 +159,7 @@ export const Game = () => {
                       {/* Top row */}
                       <div className="columns is-centered is-mobile is-multiline">
                         <div className="column">
-                          <img src="Assets/Logo.png" class="image is-128x128"></img>
+                          <img src="Assets/Logo_eighth.png" class="image"></img>
                         </div>
                       </div>
 
