@@ -1,0 +1,8 @@
+.juno-background {
+  background-image: url("../images/Landing_Page.gif");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #999;
+} 

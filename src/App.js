@@ -10,16 +10,18 @@ import { Rules } from './components/Rules';
 
 function App() {
   return (
-    <Router>
+
+
+    <Router>      
       <div classname="main">
         {/* Background image */}
         {/* <div className="background" style={{ backgroundImage: `url(${GBG})` }}> */}
 
         <Switch>
           <Route exact path='/'>
-            <div className="landing_page" style={{ backgroundImage: `url(${Landing_Page})` }}>
+            {/* <div className="landing_page" style={{ backgroundImage: `url(${Landing_Page})` }}> */}
               <Home />
-            </div>
+            {/* </div> */}
           </Route>
           <Route exact path='/game'>
             <Game />
@@ -31,6 +33,7 @@ function App() {
         {/* </div> */}
       </div>
     </Router>
+
 
   );
 }

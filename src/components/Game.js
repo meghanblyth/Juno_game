@@ -5,15 +5,21 @@ import { PlayerHand } from './PlayerHand';
 import { ComputerHand } from './ComputerHand';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHand } from '@fortawesome/free-solid-svg-icons'
+import { faRotateRight } from '@fortawesome/free-solid-svg-icons'
 import { Messages } from './Messages';
+import './Game.css';
 
 export const Game = () => {
+
+  const refreshPage = () => {
+    window.location.reload(false);
+  }
 
   console.log("Top of game")
 
 
   // Onscreen Computer Turn Messages
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState(["🤖 'Bleep bleep bloop bloop'", "🤖 'I'm a Juno master'", "🤖 'No way you're gonna beat me!'", "🤖 'Bleep bleep bloop bloop'"])
 
   // Function that updates the messages, 
   // but only keeps 4 most recent messages
@@ -57,7 +63,7 @@ export const Game = () => {
       const newComputerHand = computerHand.concat(newCard);
       setComputerHand(newComputerHand);
 
-      updateMessages(`Computer drew a card!`)
+      updateMessages(`👀 Computer drew a card...`)
       //console.log(computerHand);
     }
 
@@ -106,7 +112,7 @@ export const Game = () => {
           number: number
         }
 
-        updateMessages(`Computer played a ${newMatchCard.colour} ${newMatchCard.number}! `)
+        updateMessages(`😏 Computer played a ${newMatchCard.colour} ${newMatchCard.number}! `)
 
         setMatchCard(newMatchCard);
 
@@ -139,95 +145,182 @@ export const Game = () => {
   // 
   return (
 
-    // <section class="section">
 
-    //   <div class="container is-fullhd">
 
-        <div className="Game">
+    <div className="Game">
 
-          {/* <Game /> */}
+      {
+        // If player won
+        playerHand.length === 0 ?
+          <div>
+            <section class="hero is-info is-fullheight">
+              <div class="hero-body">
+                <div class="container">
 
-          {playerHand.length === 0 ? <p>You won!</p> :
+                  <div class="columns is-centered">
+                    <div class="column is-half">
 
-            (computerHand.length === 0 ? <p>You lost!</p> :
+                      <div class="box">
+                        <div class="columns is-centered is-vcentered">
+                          <div class="column is-half">
+                            <img src="Assets/win.gif" class="image"></img>
+                          </div>
 
-              <div>
-                <section class="section">
-                  <div class="container is-fullhd">
+                          <div class="column is-half has-text-centered">
+                            <h1 class="is-size-1">🥳 You won!</h1>
+                            <br></br>
 
-                    <div>
-                      {/* Top row */}
-                      <div className="columns is-centered is-mobile is-multiline">
-                        <div className="column">
-                          <img src="Assets/Logo.png" class="image is-128x128"></img>
+                            <button class="button is-medium is-danger" onClick={refreshPage}>
+                              <span class="icon">
+                                <FontAwesomeIcon icon={faRotateRight} />
+                              </span>
+                              <span>Play again</span>
+                            </button>
+
+                          </div>
+
                         </div>
                       </div>
 
-                      <div className="columns is-centered is-mobile is-multiline">
-                        <div className="column">
-                          <h1 class="title has-text-right" >Computer's Hand</h1>
-                          <ComputerHand computerHand={computerHand} />
-                        </div>
-                      </div>
                     </div>
-
                   </div>
-                </section>
-                
-                <section class="section">
-                  <div class="container is-fullhd">
 
-                    {/* Middle row */}
-                    <div className="columns is-centered is-mobile is-multiline is-vcentered ">
 
-                      <div className="column is-one-third has-text-centered">
-                        <p>
-                          <button class="button is-medium is-danger" onClick={() => handleCardDraw('player')}>
-                            <span class="icon">
-                              <FontAwesomeIcon icon={faHand}/>
-                            </span>
-                            <span>Draw a card</span></button>
-                        </p>
-                      </div>
-
-                      <div className="column is-one-third has-text-centered is-mobile is-multiline">
-                      <h1 class="title has-text-centered">Matching Card</h1>
-                        <div className="image is-128x128 is-inline-block">
-                          <Card colour={matchCard.colour} number={matchCard.number} onClick={() => { }} />
-                        </div>
-                      </div>
-
-                      <div className="column is-one-third is-mobile is-multiline has-text-weight-medium">
-                        <Messages messages={messages} /> 
-                      </div>
-
-                    </div>
-
-                  </div>
-                </section>
-                
-                <section class="section">
-                  <div class="container is-fullhd">
-
-                    {/* Bottom row */}
-                    <div className="columns is-centered">
-                      <div className="column">
-                        <h1 class="title">Your Hand</h1>
-                        <PlayerHand playerHand={playerHand}
-                          onCardClick={playerHandleCardClick} />
-                      </div>
-                    </div>
-
-                  </div>
-                </section>
+                </div>
               </div>
-            )
-          }
+            </section>
+          </div>
 
-        </div>
+          // If player lost
+          :
+          (computerHand.length === 0 ?
 
-    //   </div>
-    // </section >
+            <div>
+              <section class="hero is-info is-fullheight">
+                <div class="hero-body">
+                  <div class="container">
+
+                    <div class="columns is-centered">
+                      <div class="column is-half">
+
+                        <div class="box">
+                          <div class="columns is-centered is-vcentered">
+                            <div class="column is-half">
+                              <img src="Assets/lose.gif" class="image"></img>
+                            </div>
+
+                            <div class="column is-half has-text-centered">
+                              <h1 class="is-size-1">😢 You lost</h1>
+                              <br></br>
+
+                              <button class="button is-medium is-danger" onClick={refreshPage}>
+                                <span class="icon">
+                                  <FontAwesomeIcon icon={faRotateRight} />
+                                </span>
+                                <span>Play again</span>
+                              </button>
+
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            // If game is still playing
+            :
+
+            <section class="hero is-fullheight table-background">
+              {/* <div class="hero-body"> */}
+                <div>
+                  <section class="section">
+                    <div class="container is-fullhd">
+
+                      <div>
+                        {/* Top row */}
+                        <div className="columns is-centered is-mobile is-multiline">
+                          <div className="column">
+                            <img src="Assets/Logo_eighth.png" class="image"></img>
+                          </div>
+                        </div>
+
+                        <div className="columns is-centered is-mobile is-multiline">
+                          <div className="column">
+                            <h1 class="title has-text-right has-text-white" >Computer's Hand</h1>
+                            <ComputerHand computerHand={computerHand} />
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </section>
+
+                  <section class="section">
+                    <div class="container is-fullhd">
+
+                      {/* Middle row */}
+                      <div className="columns is-centered is-mobile is-multiline is-vcentered ">
+
+                        <div className="column is-one-third has-text-centered">
+                          
+                            <button class="button is-medium is-info " onClick={() => handleCardDraw('player')}>
+                              <span class="icon">
+                                <FontAwesomeIcon icon={faHand} />
+                              </span>
+                              <span>Draw a card</span></button>
+                          
+                        </div>
+
+                        <div className="column is-one-third has-text-centered is-mobile is-multiline ">
+                          <h1 class="title has-text-centered has-text-white">Matching Card</h1>
+                          <div className="image is-inline-block">
+                            <Card colour={matchCard.colour} number={matchCard.number} onClick={() => { }} />
+                          </div>
+                        </div>
+
+                        <div className="column is-one-third is-mobile is-multiline has-text-weight-medium">
+                          <div class="box">
+                            <Messages messages={messages} />
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </section>
+
+                  <section class="section">
+                    <div class="container is-fullhd">
+
+                      {/* Bottom row */}
+                      <div className="columns is-centered">
+                        <div className="column">
+                          <h1 class="title has-text-white">Your Hand</h1>
+                          <PlayerHand playerHand={playerHand}
+                            onCardClick={playerHandleCardClick} />
+                        </div>
+                      </div>
+
+                    </div>
+                  </section>
+                </div>
+
+              {/* </div> */}
+            </section>
+          )
+      }
+
+    </div>
+
+
+
 
   )
 }
