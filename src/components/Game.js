@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHand } from '@fortawesome/free-solid-svg-icons'
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons'
 import { Messages } from './Messages';
+import './Game.css';
 
 export const Game = () => {
 
@@ -41,8 +42,8 @@ export const Game = () => {
   const [matchCard, setMatchCard] = useState(drawCard());
 
   // playerHand (collection of cards)
-  const [playerHand, setPlayerHand] = useState(drawStarterHand);
-  const [computerHand, setComputerHand] = useState(drawStarterHand);
+  const [playerHand, setPlayerHand] = useState(drawStarterHand());
+  const [computerHand, setComputerHand] = useState(drawStarterHand());
 
 
 
@@ -144,13 +145,15 @@ export const Game = () => {
   // 
   return (
 
+
+
     <div className="Game">
 
       {
         // If player won
         playerHand.length === 0 ?
           <div>
-            <section class="hero is-primary is-fullheight">
+            <section class="hero is-info is-fullheight">
               <div class="hero-body">
                 <div class="container">
 
@@ -164,7 +167,7 @@ export const Game = () => {
                           </div>
 
                           <div class="column is-half has-text-centered">
-                            <h1 class="is-size-1">You won!</h1>
+                            <h1 class="is-size-1">🥳 You won!</h1>
                             <br></br>
 
                             <button class="button is-medium is-danger" onClick={refreshPage}>
@@ -193,7 +196,7 @@ export const Game = () => {
           (computerHand.length === 0 ?
 
             <div>
-              <section class="hero is-primary is-fullheight">
+              <section class="hero is-info is-fullheight">
                 <div class="hero-body">
                   <div class="container">
 
@@ -207,7 +210,7 @@ export const Game = () => {
                             </div>
 
                             <div class="column is-half has-text-centered">
-                              <h1 class="is-size-1">You lost!</h1>
+                              <h1 class="is-size-1">😢 You lost</h1>
                               <br></br>
 
                               <button class="button is-medium is-danger" onClick={refreshPage}>
@@ -233,82 +236,90 @@ export const Game = () => {
 
             // If game is still playing
             :
-            <div>
-              <section class="section">
-                <div class="container is-fullhd">
 
-                  <div>
-                    {/* Top row */}
-                    <div className="columns is-centered is-mobile is-multiline">
-                      <div className="column">
-                        <img src="Assets/Logo_eighth.png" class="image"></img>
+            <section class="hero is-fullheight table-background">
+              {/* <div class="hero-body"> */}
+                <div>
+                  <section class="section">
+                    <div class="container is-fullhd">
+
+                      <div>
+                        {/* Top row */}
+                        <div className="columns is-centered is-mobile is-multiline">
+                          <div className="column">
+                            <img src="Assets/Logo_eighth.png" class="image"></img>
+                          </div>
+                        </div>
+
+                        <div className="columns is-centered is-mobile is-multiline">
+                          <div className="column">
+                            <h1 class="title has-text-right has-text-white" >Computer's Hand</h1>
+                            <ComputerHand computerHand={computerHand} />
+                          </div>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="columns is-centered is-mobile is-multiline">
-                      <div className="column">
-                        <h1 class="title has-text-right" >Computer's Hand</h1>
-                        <ComputerHand computerHand={computerHand} />
+                    </div>
+                  </section>
+
+                  <section class="section">
+                    <div class="container is-fullhd">
+
+                      {/* Middle row */}
+                      <div className="columns is-centered is-mobile is-multiline is-vcentered ">
+
+                        <div className="column is-one-third has-text-centered">
+                          
+                            <button class="button is-medium is-info " onClick={() => handleCardDraw('player')}>
+                              <span class="icon">
+                                <FontAwesomeIcon icon={faHand} />
+                              </span>
+                              <span>Draw a card</span></button>
+                          
+                        </div>
+
+                        <div className="column is-one-third has-text-centered is-mobile is-multiline ">
+                          <h1 class="title has-text-centered has-text-white">Matching Card</h1>
+                          <div className="image is-inline-block">
+                            <Card colour={matchCard.colour} number={matchCard.number} onClick={() => { }} />
+                          </div>
+                        </div>
+
+                        <div className="column is-one-third is-mobile is-multiline has-text-weight-medium">
+                          <div class="box">
+                            <Messages messages={messages} />
+                          </div>
+                        </div>
+
                       </div>
-                    </div>
-                  </div>
 
+                    </div>
+                  </section>
+
+                  <section class="section">
+                    <div class="container is-fullhd">
+
+                      {/* Bottom row */}
+                      <div className="columns is-centered">
+                        <div className="column">
+                          <h1 class="title has-text-white">Your Hand</h1>
+                          <PlayerHand playerHand={playerHand}
+                            onCardClick={playerHandleCardClick} />
+                        </div>
+                      </div>
+
+                    </div>
+                  </section>
                 </div>
-              </section>
 
-              <section class="section">
-                <div class="container is-fullhd">
-
-                  {/* Middle row */}
-                  <div className="columns is-centered is-mobile is-multiline is-vcentered ">
-
-                    <div className="column is-one-third has-text-centered">
-                      <p>
-                        <button class="button is-medium is-danger" onClick={() => handleCardDraw('player')}>
-                          <span class="icon">
-                            <FontAwesomeIcon icon={faHand} />
-                          </span>
-                          <span>Draw a card</span></button>
-                      </p>
-                    </div>
-
-                    <div className="column is-one-third has-text-centered is-mobile is-multiline ">
-                      <h1 class="title has-text-centered">Matching Card</h1>
-                      <div className="image is-inline-block">
-                        <Card colour={matchCard.colour} number={matchCard.number} onClick={() => { }} />
-                      </div>
-                    </div>
-
-                    <div className="column is-one-third is-mobile is-multiline has-text-weight-medium">
-                      <div class="box">
-                        <Messages messages={messages} />
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </section>
-
-              <section class="section">
-                <div class="container is-fullhd">
-
-                  {/* Bottom row */}
-                  <div className="columns is-centered">
-                    <div className="column">
-                      <h1 class="title">Your Hand</h1>
-                      <PlayerHand playerHand={playerHand}
-                        onCardClick={playerHandleCardClick} />
-                    </div>
-                  </div>
-
-                </div>
-              </section>
-            </div>
+              {/* </div> */}
+            </section>
           )
       }
 
     </div>
+
+
 
 
   )

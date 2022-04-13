@@ -1,0 +1,8 @@
+.table-background {
+  background-image: linear-gradient(red, yellow);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgb(220, 192, 245);
+} 
