@@ -28,4 +28,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 - [Meghan Blyth](https://github.com/meghanblyth)
 - [Haroon Fatih](https://github.com/Haroon2021)
 - [Sarah Moffat](https://github.com/SarahM55)
+
+
+
+
+## Presentation 
+
 [Juno presentation.pdf](https://github.com/meghanblyth/Juno_game/files/8482008/Juno.presentation.pdf)
