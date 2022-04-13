@@ -1,7 +1,7 @@
 export const Rules = () => {
 
   const styles= {
-    color: 'white',
+    color: 'black',
   };
   
   return ( 
