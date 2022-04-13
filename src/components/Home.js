@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGamepad } from '@fortawesome/free-solid-svg-icons'
 
 export const Home = () => {
   return (
@@ -28,7 +30,12 @@ export const Home = () => {
           <br></br>
 
           <Link to={'/Game'}>
-            <button class="button">Play!</button>
+            <button class="button is-large">
+              <span class="icon">
+                <FontAwesomeIcon icon={faGamepad} />
+              </span>
+              <span>Play</span>
+            </button>
           </Link>
         </div>
 

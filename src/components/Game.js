@@ -7,8 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHand } from '@fortawesome/free-solid-svg-icons'
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons'
 import { Messages } from './Messages';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-
 
 export const Game = () => {
 
@@ -20,7 +18,7 @@ export const Game = () => {
 
 
   // Onscreen Computer Turn Messages
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState(["🤖 'Bleep bleep bloop bloop'", "🤖 'I'm a Juno master'", "🤖 'No way you're gonna beat me!'", "🤖 'Bleep bleep bloop bloop'"])
 
   // Function that updates the messages, 
   // but only keeps 4 most recent messages
@@ -43,8 +41,8 @@ export const Game = () => {
   const [matchCard, setMatchCard] = useState(drawCard());
 
   // playerHand (collection of cards)
-  const [playerHand, setPlayerHand] = useState([drawCard()]);
-  const [computerHand, setComputerHand] = useState([drawCard()]);
+  const [playerHand, setPlayerHand] = useState(drawStarterHand);
+  const [computerHand, setComputerHand] = useState(drawStarterHand);
 
 
 
@@ -64,7 +62,7 @@ export const Game = () => {
       const newComputerHand = computerHand.concat(newCard);
       setComputerHand(newComputerHand);
 
-      updateMessages(`Computer drew a card!`)
+      updateMessages(`👀 Computer drew a card...`)
       //console.log(computerHand);
     }
 
@@ -113,7 +111,7 @@ export const Game = () => {
           number: number
         }
 
-        updateMessages(`Computer played a ${newMatchCard.colour} ${newMatchCard.number}! `)
+        updateMessages(`😏 Computer played a ${newMatchCard.colour} ${newMatchCard.number}! `)
 
         setMatchCard(newMatchCard);
 
@@ -195,43 +193,43 @@ export const Game = () => {
           (computerHand.length === 0 ?
 
             <div>
-            <section class="hero is-primary is-fullheight">
-              <div class="hero-body">
-                <div class="container">
+              <section class="hero is-primary is-fullheight">
+                <div class="hero-body">
+                  <div class="container">
 
-                  <div class="columns is-centered">
-                    <div class="column is-half">
+                    <div class="columns is-centered">
+                      <div class="column is-half">
 
-                      <div class="box">
-                        <div class="columns is-centered is-vcentered">
-                          <div class="column is-half">
-                            <img src="Assets/lose.gif" class="image"></img>
+                        <div class="box">
+                          <div class="columns is-centered is-vcentered">
+                            <div class="column is-half">
+                              <img src="Assets/lose.gif" class="image"></img>
+                            </div>
+
+                            <div class="column is-half has-text-centered">
+                              <h1 class="is-size-1">You lost!</h1>
+                              <br></br>
+
+                              <button class="button is-medium is-danger" onClick={refreshPage}>
+                                <span class="icon">
+                                  <FontAwesomeIcon icon={faRotateRight} />
+                                </span>
+                                <span>Play again</span>
+                              </button>
+
+                            </div>
+
                           </div>
-
-                          <div class="column is-half has-text-centered">
-                            <h1 class="is-size-1">You lost!</h1>
-                            <br></br>
-
-                            <button class="button is-medium is-danger" onClick={refreshPage}>
-                              <span class="icon">
-                                <FontAwesomeIcon icon={faRotateRight} />
-                              </span>
-                              <span>Play again</span>
-                            </button>
-
-                          </div>
-
                         </div>
+
                       </div>
-
                     </div>
+
+
                   </div>
-
-
                 </div>
-              </div>
-            </section>
-          </div>
+              </section>
+            </div>
 
             // If game is still playing
             :
@@ -282,7 +280,9 @@ export const Game = () => {
                     </div>
 
                     <div className="column is-one-third is-mobile is-multiline has-text-weight-medium">
-                      <Messages messages={messages} />
+                      <div class="box">
+                        <Messages messages={messages} />
+                      </div>
                     </div>
 
                   </div>
