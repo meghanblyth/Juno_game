@@ -139,9 +139,9 @@ export const Game = () => {
   // 
   return (
 
-    <section class="section">
+    // <section class="section">
 
-      <div class="container is-fullhd">
+    //   <div class="container is-fullhd">
 
         <div className="Game">
 
@@ -226,8 +226,8 @@ export const Game = () => {
 
         </div>
 
-      </div>
-    </section >
+    //   </div>
+    // </section >
 
   )
 }
