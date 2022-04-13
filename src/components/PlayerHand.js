@@ -8,6 +8,6 @@ export const PlayerHand = (props) => {
           } </li>
         ) 
       
-  return ( playerHand)
+  return (playerHand)
       
 }

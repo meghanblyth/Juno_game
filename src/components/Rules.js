@@ -6,7 +6,7 @@ export const Rules = () => {
   
   return ( 
     <div className="Rules">
-    <h1 style={styles}>Rules</h1>
+    <h1 style={styles}>Juno Rules</h1>
     <h3 style={styles}><p>Juno is a take on the highly popular card game, 'Uno', played by millions around the globe.</p> 
        <p>This game is played by matching and then discarding the cards in one’s hand till none are left.</p>
        <p>Here are the rules of Juno.</p></h3>
