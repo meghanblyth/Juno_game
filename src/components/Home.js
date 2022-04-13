@@ -17,15 +17,15 @@ export const Home = () => {
 
 
           <h1 class="title is-1 has-text-white">Each turn:</h1>
-          <p>Play a card from your hand by matching it’s colour or number with the Match card in the middle.</p>
+          <p class="is-size-5">Play a card from your hand by matching it’s colour or number with the Match card in the middle.</p>
 
           <br></br>
 
-          <p>If don’t have any cards you can play, then draw a card to end your turn.</p>
+          <p class="is-size-5">If don’t have any cards you can play, then draw a card to end your turn.</p>
 
           <br></br>
 
-          <p>First to get rid of all of their cards wins!</p>
+          <p class="is-size-5">First to get rid of all of their cards wins!</p>
 
           <br></br>
 
