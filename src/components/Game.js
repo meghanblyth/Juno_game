@@ -272,9 +272,9 @@ export const Game = () => {
                       </p>
                     </div>
 
-                    <div className="column is-one-third has-text-centered is-mobile is-multiline">
+                    <div className="column is-one-third has-text-centered is-mobile is-multiline ">
                       <h1 class="title has-text-centered">Matching Card</h1>
-                      <div className="image is-128x128 is-inline-block">
+                      <div className="image is-inline-block">
                         <Card colour={matchCard.colour} number={matchCard.number} onClick={() => { }} />
                       </div>
                     </div>
@@ -301,8 +301,6 @@ export const Game = () => {
                         onCardClick={playerHandleCardClick} />
                     </div>
                   </div>
-
-
 
                 </div>
               </section>
